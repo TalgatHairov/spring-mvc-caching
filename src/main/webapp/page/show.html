@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
+      layout:decorator="default">
+<head>
+  <title>IDEA Frame Inc. :: Add Person</title>
+  <link th:href="@{/c/bootstrap-validator.css}" rel="stylesheet" type="text/css"/>
+  <script th:src="@{/s/bootstrap-validator.js}" type="text/javascript"></script>
+  <script type="text/javascript">
+    $("#personForm").bootstrapValidator({
+      fields : {
+        name : {
+          validators : { notEmpty : { message : "Please provide name" } }
+        }
+      },
+      submitButtons : "button"
+    });
+
+  </script>
+</head>
+<body>
+<section class="content-header" layout:fragment="header">
+  <h1>
+    Person
+    <small><i class="fa fa-angle-double-right"></i> Add</small>
+  </h1>
+</section>
+<section class="content" layout:fragment="content">
+  <form id="personForm" method="POST" role="form">
+    <input name="id" type="hidden" th:value="${person.id}"/>
+
+    <div class="col-md-12">
+      <div class="box box-success">
+        <div class="box-body">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input autofocus="autofocus" class="form-control" id="name" name="name" placeholder="Person name" type="text" th:value="${person.name}"/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" id="email" name="email" placeholder="Person's email address" type="text" th:value="${person.email}"/>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" name="gender">
+              <option value="Female" th:selected="${person.gender == 'Female'}">Female</option>
+              <option value="Male" th:selected="${person.gender == 'Male'}">Male</option>
+            </select>
+          </div>
+        </div>
+        <div class="box-footer">
+          <button class="btn btn-success">
+            <i class="fa fa-check"></i>
+            Save
+          </button>
+          <a class="btn btn-danger" th:href="@{/}">
+            <i class="fa fa-undo"></i>
+            Cancel
+          </a>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link th:href="@{/c/bootstrap.css}" rel="stylesheet" type="text/css"/>
+  <link th:href="@{/c/font-awesome.css}" rel="stylesheet" type="text/css"/>
+  <script th:src="@{/s/jquery.js}" type="text/javascript"></script>
+  <script th:src="@{/s/bootstrap.js}" type="text/javascript"></script>
+</head>
+<body class="skin-blue">
+<header class="header">
+  <span class="logo">IDEA Frame Inc.</span>
+  <nav class="navbar navbar-static-top" role="navigation"></nav>
+</header>
+<div class="wrapper row-offcanvas row-offcanvas-left">
+  <aside class="left-side sidebar-offcanvas">
+    <section class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="active">
+          <a href="javascript:void(0);">
+            <i class="fa fa-info"></i>
+            <span>Overview</span>
+            <ul>
+              <li>Use of <code>@Cacheable</code> to cache method return value(s)</li>
+              <li>Use of <code>@CacheEvict</code> to remove a cached item</li>
+            </ul>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </aside>
+  <aside class="right-side">
+    <section class="content-header" layout:fragment="header">
+      <h1>
+        Sample
+        <small><i class="fa fa-angle-double-right"></i> Caching with Spring MVC</small>
+      </h1>
+    </section>
+    <section class="content" layout:fragment="content"></section>
+  </aside>
+</div>
+</body>
+</html>

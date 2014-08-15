@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org/layout" th:inline="text"
+      layout:decorator="default">
+<head>
+  <title>IDEA Frame Inc. :: All Persons</title>
+</head>
+<body>
+<section class="content-header" layout:fragment="header">
+  <h1>
+    Persons
+    <small><i class="fa fa-angle-double-right"></i> All</small>
+  </h1>
+</section>
+<section class="content" layout:fragment="content">
+  <div class="col-md-12">
+    <div class="box box-primary">
+      <div class="box-body">
+        <table class="table table-condensed table-hover">
+          <thead>
+          <tr>
+            <th align="center" valign="top">ID</th>
+            <th align="center" valign="top">Name</th>
+            <th align="center" valign="top">Email</th>
+            <th align="center" valign="top">Gender</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="person : ${persons}">
+            <td align="left" valign="top" th:text="${person.id}">1</td>
+            <td align="left" valign="top">
+              <a th:href="@{/person/__${person.id}__}" title="View/Edit" th:text="${person.name}">Name</a>
+            </td>
+            <td align="left" valign="top" th:text="${person.email}">Email</td>
+            <td align="left" valign="top" th:text="${person.gender}">Gender</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box-footer">
+        <a class="btn btn-primary" th:href="@{/person}">
+          <i class="fa fa-plus"></i>
+          Add
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
