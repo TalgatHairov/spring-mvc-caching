@@ -38,6 +38,10 @@ request is restricted to merging the `Model` objects with `View` templates.
 This application demonstrates caching of model objects in a Spring MVC application.  The
 controller layer gets data from a service layer, the output of which is cached.  Any changes
 to the data by the user invalidates the cache so that end users always get updated results.
+The application writes log messages to the console.  Whenever the service layer is hit, it
+performs SQL queries against an in-memory database.  These SQL queries are printed on the
+console.  Whenever a page is accessed and a SQL query is not written to the console for it,
+the cache is being hit instead of the database.
 
 # Running the application
 `mvn clean tomcat7:run` will start an embedded Tomcat instance.  The application can then
